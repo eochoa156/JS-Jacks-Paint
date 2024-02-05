@@ -2,8 +2,8 @@ function configureListeners() {
     let images = document.querySelectorAll('img') 
 
      for (var i = 0; i < images.length; i++) {        
-        document.getElementById(images.id).addEventListener('mouseout', removeOpacity, false)
-        document.getElementById(images.id).addEventListener('mouseover', addOpacity, false)      
+        document.getElementById(images[i]).addEventListener('mouseover', addOpacity, false)  
+        document.getElementById(images[i]).addEventListener('mouseout', removeOpacity, false)     
     } 
 }
 
@@ -79,11 +79,10 @@ function getProductInfo(paintColor) {
 
     function updatePrice(colorName, price)
     {       
-        let colorPrice = // select element with corresponding id
-        // display price
+        let colorPrice = document.getElementById('color-price');
+        colorPriceElement.textContent = 'Price' + price;
         
-        let color = // select element with corresponding id
-        //display color name
-    }
+        let color = document.getElementById('color-name');
+        colorElement.textContent = 'Color: ' + colorName;
     
 }
