@@ -2,18 +2,18 @@ function configureListeners() {
     let images = document.querySelectorAll('img') 
 
      for (var i = 0; i < images.length; i++) {        
-        document.getElementById(images[i]).addEventListener('mouseover', addOpacity, false)  
-        document.getElementById(images[i]).addEventListener('mouseout', removeOpacity, false)     
+        document.getElementById(images[i].id).addEventListener('mouseover', addOpacity, false)  
+        document.getElementById(images[i].id).addEventListener('mouseout', removeOpacity, false)     
     } 
 }
 
 function addOpacity(event) {
-    this.classList.add('dim');
+    event.target.classList.add('dim');
     getProductInfo(event.target.id);     
 }
 
 function removeOpacity(event) {
-     this.classList.remove('dim');
+     event.target.classList.remove('dim');
 
     let element = document.getElementById('color-price');
         element.textContent = '';
@@ -76,13 +76,13 @@ function getProductInfo(paintColor) {
             break;   
           default:              
     }
-
+}
     function updatePrice(colorName, price)
     {       
         let colorPrice = document.getElementById('color-price');
-        colorPriceElement.textContent = 'Price' + price;
+        colorPrice.textContent = price;
         
         let color = document.getElementById('color-name');
-        colorElement.textContent = 'Color: ' + colorName;
-    
+        color.textContent = colorName;
 }
+configureListeners();
